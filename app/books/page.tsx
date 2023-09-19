@@ -20,7 +20,7 @@ export default async function Book(){
            <h2>{book?.attributes.Title}</h2>
             <div>
             {book?.attributes?.categories?.data.map((cat)=>{
-                return <p  key={cat?.attributes.tags}>{cat?.attributes?.tags}</p>
+                return <p  key={cat?.attributes.tags} className='pl-8'>{cat?.attributes?.tags}</p>
             })}
             </div>
             </div>
