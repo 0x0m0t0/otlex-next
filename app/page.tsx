@@ -17,7 +17,8 @@ export default function IndexPage() {
           into your apps. Free. Open Source. And Next.js 13 Ready.
         </p>
       </div>
-      <div className="flex gap-4">
+
+      {/* <div className="flex gap-4">
         <Link
           href={siteConfig.links.docs}
           target="_blank"
@@ -34,11 +35,7 @@ export default function IndexPage() {
         >
           GitHub
         </Link>
-
-        <Link href="/profile" className={buttonVariants()}>
-          Profile
-        </Link>
-      </div>
+      </div> */}
     </section>
   )
 }

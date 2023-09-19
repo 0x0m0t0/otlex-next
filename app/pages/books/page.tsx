@@ -1,7 +1,7 @@
 async function getBooks() {
-  //   const res = await fetch("http://localhost:1337/api/books?populate=*")
-  //   const data = await res.json()
-  //   return data?.data as any[]
+  const res = await fetch("http://localhost:1337/api/books?populate=*")
+  const data = await res.json()
+  return data?.data as any[]
 }
 
 export default async function Book() {
@@ -10,11 +10,24 @@ export default async function Book() {
   return (
     <section>
       <h1>0x0s catalog</h1>
-      {/* 
-      {books?.map((book) => {
+
+      {books?.map((book: any) => {
         return (
           <div key={book?.id + book?.attributes.Title}>
             <h2>{book?.attributes.Title}</h2>
+
+            <div>
+              <div key={book?.attributes?.images?.data?.attributes?.name}>
+                <img
+                  className="p-8"
+                  src={
+                    book?.attributes?.images?.data?.attributes?.formats?.medium
+                      ?.url
+                  }
+                />
+              </div>
+            </div>
+
             <div>
               {book?.attributes?.categories?.data.map((cat: any) => {
                 return (
@@ -26,7 +39,7 @@ export default async function Book() {
             </div>
           </div>
         )
-      })} */}
+      })}
     </section>
   )
 }
