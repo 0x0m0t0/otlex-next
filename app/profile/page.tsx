@@ -10,13 +10,13 @@ export default async function Test() {
 
   return (
     <section>
-      <h1>0x0's catalog</h1>
+      <h1>0x0s catalog</h1>
 
-      {test?.map((item) => {
+      {test?.map((item: any) => {
         return (
           <div key={item?.id}>
             <h2>{item?.title}</h2>
-            <img src={item?.thumbnail} alt="" />
+            <img src={item?.thumbnail} alt={item?.title} />
           </div>
         )
       })}
