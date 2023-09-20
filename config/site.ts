@@ -1,13 +1,17 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
+  name: "Otlex",
   description:
     "Beautifully designed components built with Radix UI and Tailwind CSS.",
   mainNav: [
     {
-      title: "Home",
-      href: "/",
+      title: "Profile",
+      href: "/pages/profile",
+    },
+    {
+      title: "Library",
+      href: "/pages/books",
     },
   ],
   links: {

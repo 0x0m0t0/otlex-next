@@ -1,5 +1,5 @@
 import "@/styles/globals.css"
-
+import type { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -8,12 +8,10 @@ import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 
-import type { Metadata } from "next";
-
-const APP_NAME = "PWA App";
-const APP_DEFAULT_TITLE = "My Awesome PWA App";
-const APP_TITLE_TEMPLATE = "%s - PWA App";
-const APP_DESCRIPTION = "Best PWA app in the world!";
+const APP_NAME = "Otlex"
+const APP_DEFAULT_TITLE = "Otlex Library"
+const APP_TITLE_TEMPLATE = "Otlex"
+const APP_DESCRIPTION = "Simple personal library management"
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -22,7 +20,7 @@ export const metadata: Metadata = {
     template: APP_TITLE_TEMPLATE,
   },
   description: APP_DESCRIPTION,
-    themeColor: [
+  themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
@@ -53,9 +51,7 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
   },
-};
-
-
+}
 
 interface RootLayoutProps {
   children: React.ReactNode
