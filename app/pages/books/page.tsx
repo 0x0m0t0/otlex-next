@@ -1,3 +1,4 @@
+"use client"
 async function getBooks() {
   const res = await fetch(process.env.apiURI as string)
   const data = await res.json()
