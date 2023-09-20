@@ -1,5 +1,5 @@
 async function getBooks() {
-  const res = await fetch("http://localhost:1337/api/books?populate=*")
+  const res = await fetch(process.env.apiURI as string)
   const data = await res.json()
   return data?.data as any[]
 }
