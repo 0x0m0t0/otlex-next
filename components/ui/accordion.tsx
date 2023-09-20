@@ -2,7 +2,13 @@
 
 import React, { useState } from "react"
 
-const AccordionItem = ({ title, content }) => {
+const AccordionItem = ({
+  title,
+  content,
+}: {
+  title: string
+  content: string
+}) => {
   const [isActive, setIsActive] = useState(false)
 
   const toggleAccordion = () => {
