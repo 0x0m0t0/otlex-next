@@ -13,8 +13,8 @@ export default async function Book() {
 
       {books?.map((book: any) => {
         return (
-          <div key={book?.id + book?.attributes.Title}>
-            <h2>{book?.attributes.Title}</h2>
+          <div key={book?.id + book?.attributes?.Title}>
+            <h2>{book?.attributes?.Title}</h2>
 
             <div>
               <div key={book?.attributes?.images?.data?.attributes?.name}>
@@ -31,7 +31,7 @@ export default async function Book() {
             <div>
               {book?.attributes?.categories?.data.map((cat: any) => {
                 return (
-                  <p key={cat?.attributes.tags} className="pl-8">
+                  <p key={cat?.attributes?.tags} className="pl-8">
                     {cat?.attributes?.tags}
                   </p>
                 )
