@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 async function getBooks() {
   const res = await fetch(process.env.apiURI as string)
@@ -7,9 +7,9 @@ async function getBooks() {
 }
 
 const Book = () => {
-  const [books, setBooks] = React.useState<any[]>([])
+  const [books, setBooks] = useState<any[]>([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchBooks = async () => {
       try {
         const fetchedBooks = await getBooks()
