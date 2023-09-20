@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
+import Accordion from "@/components/ui/accordion"
 import { buttonVariants } from "@/components/ui/button"
 
 export default function IndexPage() {
@@ -17,6 +18,7 @@ export default function IndexPage() {
           into your apps. Free. Open Source. And Next.js 13 Ready.
         </p>
       </div>
+      <Accordion />
 
       {/* <div className="flex gap-4">
         <Link

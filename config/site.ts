@@ -9,6 +9,10 @@ export const siteConfig = {
       title: "Profile",
       href: "/pages/profile",
     },
+    {
+      title: "Library",
+      href: "/pages/books",
+    },
   ],
   links: {
     twitter: "https://twitter.com/oxomoto",
