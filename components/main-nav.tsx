@@ -20,7 +20,7 @@ export function MainNav({ items }: MainNavProps) {
 
       <div className="flex flex-col items-center w-full h-16 justify-center">
         {items?.length ? (
-          <nav className="flex fixed p-2 border border-white rounded justify-center items-center gap-6 border border-white rounded bg-opacity-60 bg-white backdrop-blur-7 border border-opacity-25 border-white">
+          <nav className="flex fixed  rounded justify-center items-center gap-2 p-0.5 rounded bg-opacity-60 bg-earth-100 backdrop-blur-7 border border-opacity-25 border-white">
             {items?.map(
               (item, index) =>
                 item.href && (
@@ -28,7 +28,8 @@ export function MainNav({ items }: MainNavProps) {
                     key={index}
                     href={item.href}
                     className={cn(
-                      "flex items-center text-sm font-medium text-muted-foreground",
+                      "flex items-center text-sm font-medium rounded text-muted-foreground p-1.5",
+                      "transition ease-in-out duration-300 delay-150 hover:bg-earth-400 hover:text-earth-900",
                       item.disabled && "cursor-not-allowed opacity-80"
                     )}
                   >
