@@ -16,7 +16,7 @@ const AccordionItem = ({
   }
 
   return (
-    <div className="cursor-pointer group">
+    <div className="cursor-pointer group bg-primary-background text-foreground">
       <button
         onClick={toggleAccordion}
         className="flex items-center justify-between w-full p-4 text-left select-none group-hover:underline"
