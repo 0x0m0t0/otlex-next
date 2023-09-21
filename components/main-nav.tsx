@@ -20,7 +20,7 @@ export function MainNav({ items }: MainNavProps) {
 
       <div className="flex flex-col items-center w-full h-16 justify-center">
         {items?.length ? (
-          <nav className="flex fixed p-2 border border-white rounded justify-center items-center gap-6 border border-white rounded">
+          <nav className="flex fixed p-2 border border-white rounded justify-center items-center gap-6 border border-white rounded bg-opacity-60 bg-white backdrop-blur-7 border border-opacity-25 border-white">
             {items?.map(
               (item, index) =>
                 item.href && (

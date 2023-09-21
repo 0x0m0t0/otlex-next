@@ -1,6 +1,9 @@
-"use client"
 async function getBooks() {
-  const res = await fetch(process.env.apiURI as string)
+  const res = await fetch(process.env.apiURI as string, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
   const data = await res.json()
   return data?.data as any[]
 }
@@ -14,7 +17,10 @@ export default async function Book() {
 
       {books?.map((book: any) => {
         return (
-          <div key={book?.id + book?.attributes?.Title}>
+          <div
+            className="flex flex-col items-center"
+            key={book?.id + book?.attributes?.Title}
+          >
             <h2>{book?.attributes?.Title}</h2>
 
             <div>
