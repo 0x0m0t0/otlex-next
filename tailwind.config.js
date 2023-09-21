@@ -1,9 +1,23 @@
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
+const earthColors = {
+  "earth-50": "#fffffd",
+  "earth-100": "#fefffa",
+  "earth-200": "#fdfff5",
+  "earth-300": "#fcfef1",
+  "earth-400": "#fbfeec",
+  "earth-500": "#fafee7",
+  "earth-600": "#c8cbb9",
+  "earth-700": "#96988b",
+  "earth-800": "#64665c",
+  "earth-900": "#32332e",
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+
   theme: {
     container: {
       center: true,
@@ -14,6 +28,18 @@ module.exports = {
     },
     extend: {
       colors: {
+        earth: {
+          50: "#fffffd",
+          100: "#fefffa",
+          200: "#fdfff5",
+          300: "#fcfef1",
+          400: "#fbfeec",
+          500: "#fafee7",
+          600: "#c8cbb9",
+          700: "#96988b",
+          800: "#64665c",
+          900: "#32332e",
+        },
         border: "var(--border)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
