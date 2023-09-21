@@ -17,7 +17,10 @@ export default async function Book() {
 
       {books?.map((book: any) => {
         return (
-          <div key={book?.id + book?.attributes?.Title}>
+          <div
+            className="flex flex-col items-center"
+            key={book?.id + book?.attributes?.Title}
+          >
             <h2>{book?.attributes?.Title}</h2>
 
             <div>
