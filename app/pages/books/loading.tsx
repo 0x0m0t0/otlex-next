@@ -1,5 +1,3 @@
-// import { Image } from "@unpic/react"
-
 export default function Loading() {
   return (
     <section>
