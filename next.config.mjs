@@ -12,4 +12,9 @@ export default withPWA({
   images: {
     domains: ["res.cloudinary.com"],
   },
+
+  env: {
+    MYACCESSTOKEN: process.env.MYACCESSTOKEN,
+    apiEndpoint: process.env.apiEndpoint,
+  },
 })
