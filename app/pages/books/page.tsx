@@ -1,5 +1,21 @@
 import Image from "next/image"
 
+interface Pictures {
+  image: string
+}
+
+interface BookPicture {
+  picture: string
+  Pictures_id?: Pictures
+}
+
+interface Books {
+  id: number
+  Name: string
+  pictures: BookPicture[]
+  image: string
+}
+
 async function getBooks() {
   const res = await fetch(process.env.apiURI as string, {
     headers: {
@@ -13,13 +29,13 @@ async function getBooks() {
 }
 
 export default async function Book() {
-  const books = await getBooks()
+  const books: Books[] = await getBooks()
 
   return (
     <>
       <h1 className="text-2xl text-center p-6">0x0s catalog</h1>
 
-      {books?.map((book: any) => {
+      {books?.map((book) => {
         return (
           <div
             className="flex flex-col items-center"
@@ -33,7 +49,8 @@ export default async function Book() {
                 <Image
                   className="px-8 pb-6"
                   src={
-                    process.env.apiIMG + book?.pictures[0]?.Pictures_id?.image
+                    (process.env.apiIMG as string) +
+                    book?.pictures[0]?.Pictures_id?.image
                   }
                   alt={book?.Name}
                   width={500}
