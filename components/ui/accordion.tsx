@@ -46,16 +46,12 @@ const Accordion = () => {
   return (
     <div className="relative w-full mx-auto overflow-hidden text-sm font-normal bg-white border border-gray-200 divide-y divide-gray-200 rounded-md">
       <AccordionItem
-        title="What is Pines?"
-        content="Pines is a UI library built for AlpineJS and TailwindCSS."
+        title="What is Otlex?"
+        content="Otlex is a personal library management tool for (physical) books built with Directus & Next.js"
       />
       <AccordionItem
-        title="How do I install Pines?"
-        content="Add AlpineJS and TailwindCSS to your page and then copy and paste any of these elements into your project."
-      />
-      <AccordionItem
-        title="Can I use Pines with other libraries or frameworks?"
-        content="Absolutely! Pines works with any other library or framework. Pines works especially well with the TALL stack."
+        title="How do I use Otlex?"
+        content="Register an account and start adding your library."
       />
     </div>
   )

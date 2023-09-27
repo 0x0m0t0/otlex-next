@@ -1,57 +1,47 @@
-import Image from "next/image"
+import View from "./view"
+
+export interface Pictures {
+  image: string
+}
+
+export interface BookPicture {
+  picture: string
+  Pictures_id?: Pictures
+}
+
+export interface Books {
+  id: number
+  Name: string
+  pictures: BookPicture[]
+  image: string
+  Year: number
+  date_created: string
+}
 
 async function getBooks() {
   const res = await fetch(process.env.apiURI as string, {
+    cache: "no-store",
+    // next: {
+    //   revalidate: 10,
+    // },
     headers: {
       "Content-Type": "application/json",
+      Authorization: process.env.apiKEY as string,
     },
   })
   const data = await res.json()
+
   return data?.data as any[]
 }
 
 export default async function Book() {
-  const books = await getBooks()
+  const books: Books[] = await getBooks()
 
   return (
-    <section>
+    <>
       <h1 className="text-2xl text-center p-6">0x0s catalog</h1>
 
-      {books?.map((book: any) => {
-        return (
-          <div
-            className="flex flex-col items-center"
-            key={book?.id + book?.attributes?.Title}
-          >
-            <h2 className="text-sm">{book?.attributes?.Title}</h2>
-
-            <div>
-              <div key={book?.attributes?.images?.data?.attributes?.name}>
-                <Image
-                  className="px-8 pb-6"
-                  src={
-                    book?.attributes?.images?.data?.attributes?.formats?.medium
-                      ?.url
-                  }
-                  alt={book?.attributes?.images?.data?.attributes?.name}
-                  width={500}
-                  height={500}
-                />
-              </div>
-            </div>
-
-            <div>
-              {book?.attributes?.categories?.data.map((cat: any) => {
-                return (
-                  <p key={cat?.attributes?.tags} className="pl-8">
-                    {cat?.attributes?.tags}
-                  </p>
-                )
-              })}
-            </div>
-          </div>
-        )
-      })}
-    </section>
+      <View books={books} />
+    </>
   )
 }
