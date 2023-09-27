@@ -18,6 +18,10 @@ interface Books {
 
 async function getBooks() {
   const res = await fetch(process.env.apiURI as string, {
+    cache: "no-store",
+    // next: {
+    //   revalidate: 10,
+    // },
     headers: {
       "Content-Type": "application/json",
       Authorization: process.env.apiKEY as string,
