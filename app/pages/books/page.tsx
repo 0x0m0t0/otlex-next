@@ -1,19 +1,21 @@
-import Image from "next/image"
+import View from "./view"
 
-interface Pictures {
+export interface Pictures {
   image: string
 }
 
-interface BookPicture {
+export interface BookPicture {
   picture: string
   Pictures_id?: Pictures
 }
 
-interface Books {
+export interface Books {
   id: number
   Name: string
   pictures: BookPicture[]
   image: string
+  Year: number
+  date_created: string
 }
 
 async function getBooks() {
@@ -39,42 +41,7 @@ export default async function Book() {
     <>
       <h1 className="text-2xl text-center p-6">0x0s catalog</h1>
 
-      {books?.map((book) => {
-        return (
-          <div
-            className="flex flex-col items-center"
-            key={book?.id + book?.Name}
-          >
-            <h2 className="text-sm">{book?.Name}</h2>
-            <h3 className="text-sm">{book?.pictures[0]?.Pictures_id?.image}</h3>
-
-            <div>
-              <div key={book?.image}>
-                <Image
-                  className="px-8 pb-6"
-                  src={
-                    (process.env.apiIMG as string) +
-                    book?.pictures[0]?.Pictures_id?.image
-                  }
-                  alt={book?.Name}
-                  width={500}
-                  height={500}
-                />
-              </div>
-            </div>
-
-            {/* <div>
-              {book?.attributes?.categories?.data.map((cat: any) => {
-                return (
-                  <p key={cat?.attributes?.tags} className="pl-8">
-                    {cat?.attributes?.tags}
-                  </p>
-                )
-              })}
-            </div> */}
-          </div>
-        )
-      })}
+      <View books={books} />
     </>
   )
 }

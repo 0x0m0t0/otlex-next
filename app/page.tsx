@@ -2,8 +2,7 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import Accordion from "@/components/ui/accordion"
-import { buttonVariants } from "@/components/ui/button"
-import { Login } from "@/components/ui/login"
+import { Button } from "@/components/ui/button"
 
 export default function IndexPage() {
   return (
@@ -22,7 +21,15 @@ export default function IndexPage() {
         </p>
       </div>
 
-      <Login />
+      <Link className="place-self-center" href="/pages/user">
+        <Button
+          type="submit"
+          value="Register"
+          className="mt-4  hover:bg-earth-200 hover:text-earth-900 hover:border "
+        >
+          Join
+        </Button>
+      </Link>
 
       <Accordion />
     </section>

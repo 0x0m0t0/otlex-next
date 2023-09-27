@@ -16,5 +16,6 @@ export default withPWA({
   env: {
     MYACCESSTOKEN: process.env.MYACCESSTOKEN,
     apiEndpoint: process.env.apiEndpoint,
+    apiIMG: process.env.apiIMG,
   },
 })
