@@ -10,7 +10,7 @@ export default withPWA({
     appDir: true,
   },
   images: {
-    domains: ["res.cloudinary.com"],
+    domains: [`${process.env.apiGLOB}`, "res.cloudinary.com"],
   },
 
   env: {
