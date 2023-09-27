@@ -38,10 +38,9 @@ export default async function Book() {
   const books: Books[] = await getBooks()
 
   return (
-    <>
+    <div>
       <h1 className="text-2xl text-center p-6">0x0s catalog</h1>
-
       <View books={books} />
-    </>
+    </div>
   )
 }
