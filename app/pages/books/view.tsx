@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
+import { inPlaceSort, sort } from "fast-sort"
 
 import ImageView from "./imageView"
 import ListView from "./listView"
@@ -18,12 +19,7 @@ const View: React.FC<Props> = ({ books }) => {
     setView((prevIsClicked) => !prevIsClicked)
     localStorage.setItem("view", (!view).toString())
   }
-  const local = () => {
-    console.log("this the local")
-    setView(!view)
-    localStorage.setItem("view", (!view).toString())
-  }
-
+  //   sort(books).asc()
   console.log(books)
 
   useEffect(() => {
@@ -38,11 +34,13 @@ const View: React.FC<Props> = ({ books }) => {
     }
   }, [])
 
+  const sorted = sort(books).asc((book) => book?.Name)
+
   return (
     <>
       <button onClick={toggle}>List</button>
 
-      {books?.map((book, i) =>
+      {sorted?.map((book, i) =>
         view != undefined ? (
           view === true ? (
             <ListView key={book?.id + book?.date_created} book={book} i={i} />
