@@ -13,6 +13,7 @@ export interface Books {
   id: number
   Name: string
   pictures: BookPicture[]
+  Authors: { authors_id: { name: string } }[]
   image: string
   Year: number
   date_created: string
