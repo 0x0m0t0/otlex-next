@@ -10,11 +10,12 @@ import { BookPicture, Books, Pictures } from "./page"
 interface Props {
   books: Books[]
 }
+type SortableProperties = "Name" | "Authors" | "Year"
 
 const View: React.FC<Props> = ({ books }) => {
   const [view, setView] = useState<boolean>()
   const [sorted, setSorted] = useState<Books[]>([])
-  const [clicked, setClicked] = useState<boolean>()
+  const [clicked, setClicked] = useState<boolean>(false)
 
   const toggle = () => {
     console.log("this is the toggle")
@@ -22,19 +23,21 @@ const View: React.FC<Props> = ({ books }) => {
     localStorage.setItem("view", (!view).toString())
   }
 
-  const sorting = (sorterClick: any, clicked) => {
+  const sorting = (sorterClick: SortableProperties, clicked: boolean) => {
     if (clicked === true) {
-      const sorted = sort(books).asc((book) => book[sorterClick])
+      let sorted = sort(books).asc((book) => book[sorterClick])
       setSorted(sorted)
     } else {
-      const sorted = sort(books).desc((book) => book[sorterClick])
+      let sorted = sort(books).desc((book) => book[sorterClick])
       setSorted(sorted)
     }
   }
 
   const handleClick = (e: any) => {
     const clickedValue = e.target.getAttribute("data-value")
+
     setClicked(!clicked)
+
     console.log("Clicked value:", clickedValue)
 
     sorting(clickedValue, clicked)
@@ -44,6 +47,7 @@ const View: React.FC<Props> = ({ books }) => {
 
   useEffect(() => {
     setClicked(false)
+
     setSorted(sort(books).asc((book) => book?.Name))
     if (localStorage.getItem("view") === undefined) {
       setView(false)
