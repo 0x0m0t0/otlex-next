@@ -1,7 +1,10 @@
 import React from "react"
+import { inPlaceSort, sort } from "fast-sort"
 
 const ListView = (props: any) => {
   const { book, i } = props
+  //   const sorted = sort(book.Name).asc()
+
   return (
     <div className="flex p-2 items-center justify-between border m-1">
       <p>{i}</p>
